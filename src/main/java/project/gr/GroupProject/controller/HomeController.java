@@ -22,9 +22,13 @@ public class HomeController {
 
 
     }
-    @GetMapping("/contact.html")
+    @GetMapping("/contact")
     public String contact(){
         return "contact";
+    }
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 }
 
