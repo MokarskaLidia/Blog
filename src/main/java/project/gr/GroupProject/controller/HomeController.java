@@ -10,5 +10,6 @@ public class HomeController {
     public String about(){
         System.out.println("XXX");
         return "about";
+
     }
 }
