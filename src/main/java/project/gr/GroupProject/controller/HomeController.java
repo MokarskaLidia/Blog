@@ -10,17 +10,21 @@ public class HomeController {
 
     @GetMapping("/")
     public String about(){
-        System.out.println("XXX");
+        //System.out.println("XXX");
         return "about";
 
 
     }
 
-    @GetMapping("/contact")
+    @GetMapping("/addPost")
     public String testpost(){
         return "addPost";
 
 
+    }
+    @GetMapping("/contact.html")
+    public String contact(){
+        return "contact";
     }
 }
 
