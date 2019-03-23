@@ -1,21 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,800&subset=latin-ext');
+
+        *, *::after, *::before {
+            box-sizing: border-box;
+            font-family: 'Raleway'
+        }
+        #panel {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+
+        #panel > form .errorMsg {
+            padding: 10px 0;
+            color: #f00;
+            font-weight: 900
+        }
+
+        #panel > form input[type="text"],
+        #panel > form input[type="password"] {
+            padding: 15px;
+            margin-bottom: 10px;
+            border: none;
+            transition: 0.22s;
+            font-size: 14px
+        }
+        #panel > form input[type="text"]:focus,
+        #panel > form input[type="password"]:focus {
+            outline: none;
+            background: #ccddeeee
+        }
+        #panel > form input[type="submit"] {
+            border: none;
+            background: #123;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 auto 0 0;
+            width: 100%;
+            padding: 15px;
+            color: #fff;
+            transition: 0.2s;
+        }
+        #panel > form input[type="submit"]:hover {
+            letter-spacing: 3px;
+            background: #345
+        }
+
+        #panel > form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            box-shadow: 0 0 80px -50px rgba(0, 0, 0, 0.5);
+            width: 320px;
+            background: #CAFAFE;
+            overflow: hidden;
+        }
+
+        #panel > form::after,
+        #panel > form::before {
+            content: '';
+            position: absolute;
+            height: 450px;
+            width: 450px;
+            animation: waves 5s infinite forwards linear;
+            border-radius: 40% 45% 35% 40%;
+            z-index: -1;
+
+        }
+
+        #panel > form::before {
+            animation-duration: 5s;
+            background: rgba(180, 180, 180, 0.2);
+            top: 20%;
+            left: 20%;
+
+        }
+        #panel > form::after {
+            animation-duration: 8s;
+            background: rgba(150, 150, 150, 0.2);
+            top: 25%;
+            left: 25%;
+        }
+
+
+        @keyframes waves {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+    </style>
 </head>
 <body>
-<!--<h1>Tu będzie mozna się logować :)</h1>-->
-</body>
 <div id="panel">
-    <form align="center" action="@{/register}" object="${nazwaObiektu}" method="post">
-        <input class="form-control" type="text" field="*{nazwaPola}"placeholder="imię i nazwisko">
-        <span errors="*{nazwaPola}">Wprowadź dane</span>
-        <br>
-        <!--...-->
+    <form align="center" th:action="@{/login-process}"  method="post">
+        <h1>Zaloguj się</h1>
+        <input class="form-control" type="text" th:name="login" placeholder="login">
+        <input class="form-control" type="password" th:name="password" placeholder="hasło">
         <input class="btn btn-primary" type="submit" value="Zaloguj">
-
-
+        <span class="errorMsg" errors="*{nazwaPola}">Wprowadź dane</span>
     </form>
 </div>
+<!--<h1>Tu będzie mozna się logować :)</h1>-->
+</body>
+
 </html>
