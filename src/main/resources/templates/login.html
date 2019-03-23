@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>login</title>
 </head>
 <body>
-
+<!--<h1>Tu będzie mozna się logować :)</h1>-->
 </body>
+<div id="panel">
+    <form align="center" action="@{/register}" object="${nazwaObiektu}" method="post">
+        <input class="form-control" type="text" field="*{nazwaPola}"placeholder="imię i nazwisko">
+        <span errors="*{nazwaPola}">Wprowadź dane</span>
+        <br>
+        <!--...-->
+        <input class="btn btn-primary" type="submit" value="Zaloguj">
+
+
+    </form>
+</div>
 </html>
