@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @GetMapping("/")
-    public String about(){
+    public String about() {
         //System.out.println("XXX");
         return "about";
 
@@ -17,18 +17,26 @@ public class HomeController {
     }
 
     @GetMapping("/addPost")
-    public String testpost(){
+    public String testpost() {
         return "addPost";
 
 
     }
+
     @GetMapping("/contact")
-    public String contact(){
+    public String contact() {
         return "contact";
     }
+
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
-}
 
+
+    @GetMapping("/https://sdacademy.pl/")
+    public String sda() {
+        return "https://sdacademy.pl/";
+    }
+    
+}
